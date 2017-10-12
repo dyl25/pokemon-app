@@ -4,6 +4,7 @@ import { AppRoutingModule }         from './app-routing.module';
 import { HttpModule }               from '@angular/http';
 import { InMemoryWebApiModule }     from 'angular-in-memory-web-api';
 import { InMemoryDataService }      from './in-memory-data.service';
+import './rxjs-extensions';
 
 import { PokemonsModule }           from './pokemons/pokemons.module';
 

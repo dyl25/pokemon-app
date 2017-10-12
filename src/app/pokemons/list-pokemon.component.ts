@@ -9,6 +9,9 @@ import {PokemonsService} from './pokemons.service';
     template: `<h1 class="center" >{{ title }}</h1>
     <div class="container" >
         <div class="row" >
+        
+            <pokemon-search></pokemon-search>
+        
             <div *ngFor="let pokemon of pokemons" class="col s6 m4" >
                 <div class="card horizontal" (click)="selectPokemon(pokemon)" pkmn-shadow-card >
                     <div class="card-image" >
@@ -42,7 +45,7 @@ export class ListPokemonComponent implements OnInit {
     }
 
     getPokemons(): void {
-        this.pokemons = this.pokemonsService.getPokemons();
+        this.pokemonsService.getPokemons().then(pokemons => this.pokemons = pokemons);
     }
 
     selectPokemon(pokemon: Pokemon): void {

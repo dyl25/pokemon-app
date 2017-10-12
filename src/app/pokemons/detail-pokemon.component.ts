@@ -51,7 +51,9 @@ import {PokemonsService} from './pokemons.service';
       </div>
   </div>
 </div>
-<h4 *ngIf='!pokemon' class="center">Aucun pokémon à afficher !</h4>
+<h4 *ngIf='!pokemon' class="center">
+    <pkmn-loader></pkmn-loader>
+</h4>
     `
 })
 export class DetailPokemonComponent implements OnInit {
@@ -67,7 +69,7 @@ export class DetailPokemonComponent implements OnInit {
     ngOnInit(): void {
         this.route.params.forEach((params: Params) => {
             let id = +params['id']; //on contraint à une valeur numérique grâce au +
-            this.pokemon = this.pokemonsService.getPokemon(id);
+            this.pokemonsService.getPokemon(id).then(pokemon => this.pokemon = pokemon);
         });
 
     }
