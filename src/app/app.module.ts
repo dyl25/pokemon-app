@@ -10,15 +10,19 @@ import { PokemonsModule }           from './pokemons/pokemons.module';
 
 import { AppComponent }             from './app.component';
 import { PageNotFoundComponent }    from './page-not-found.component';
+import { LoginComponent }           from './login.component';
+import { LoginRoutingModule }       from './login-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     PokemonsModule,
+    LoginRoutingModule,
     AppRoutingModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService)
